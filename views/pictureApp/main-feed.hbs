@@ -1,1 +1,14 @@
+
+
 <h2>Main Feed View</h2>
+
+<div id='map' style='border: 1px solid black; width: 400px; height: 300px;'></div>
+      <script>
+      mapboxgl.accessToken = "{{ accessToken }}";
+      const map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [-9.136460336570337,38.715813526390804],
+      zoom: 12
+      });
+      </script>
