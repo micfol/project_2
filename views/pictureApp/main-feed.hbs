@@ -12,3 +12,12 @@
       zoom: 12
       });
       </script>
+<br><br>
+{{#each image}}
+<div class="card" style="width: 18rem;">
+  <img src="{{image}}" class="card-img-top" alt="placeholder text">
+  <div class="card-body">
+    <p class="card-text">{{image.description}}</p>
+  </div>
+</div>
+{{/each}}
