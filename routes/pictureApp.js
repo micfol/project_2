@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const fileUploader = require('../config/uploadConfig');
 const Picture = require('../models/Picture.model');
+const User = require('../models/User.model');
 
 // GET Main Feed View
 router.get('/main-feed', (req, res) => {
@@ -13,20 +14,32 @@ router.get('/main-feed', (req, res) => {
 
 // GET Add Photo View
 router.get('/add-photo', (req, res) => {
-  res.render('pictureApp/add-photo', { userInSession: req.session.currentUser });
+  // User.find()
+  //   .then((userInSession) =>{
+      res.render('pictureApp/add-photo', { userInSession: req.session.currentUser });
+    // })
+    // .catch((err) => console.log(`Error while displaying the picture input page: ${err}`));
 });
 
 // POST Add Photo Route
 router.post('/add-photo', fileUploader.single('image'), (req, res) => {
   const imageUrl = req.file.path;
-  
-  Picture.create({ image: imageUrl })
+  const { lattitude, longitude, location, description } = req.body;
+  const userId  = req.session.user._id;
+  console.log(req.body);
+  Picture.create({ image: imageUrl, lattitude, longitude, location, description, author: userId })
     .then(imagesFromDb => {
-      console.log(imagesFromDb);
-      res.redirect('/pictureApp/main-feed');
+      return imagesFromDb;
+    })
+    .then(pictureData => {
+      const pictureId = pictureData._id.toString()
+      const userId = req.session.user._id
+      console.log('userId :>> ', userId);
+      User.findByIdAndUpdate(userId, { $push: { pictureEntries: pictureId } })
+      .then(doesntmatter => res.redirect('/pictureApp/main-feed'));
+      
     })
     .catch(error => console.log(`Error while uploading a picture: ${error}`));
 });
-
 
 module.exports = router;

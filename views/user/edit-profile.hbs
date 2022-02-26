@@ -1,1 +1,22 @@
-<h2>Edit User Profile Page</h2> 
+
+<h2>Edit User Information: {{user.title}}</h2>
+ 
+<form action="/user/edit-profile/{{user._id}}/edit" method="POST">
+  {{!-- <label> Email:
+    <input type="text" name="email" value="{{user.email}}" />
+  </label><br><br> --}}
+ 
+  <label> Username:
+    <input type="text" name="username" value="{{user.username}}" />
+  </label><br><br>
+{{!--  
+  <label> Password:
+    <input type="password" name="password" value="{{user.password}}" />
+  </label><br><br> --}}
+
+  <label> Bio:
+    <input type="text" name="bio" value="{{user.bio}}" placeholder="{{user.bio}}" />
+  </label><br><br>
+
+  <button>Save changes</button>
+</form>

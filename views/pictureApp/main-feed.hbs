@@ -1,23 +1,18 @@
-
-
 <h2>Main Feed View</h2>
 
-<div id='map' style='border: 1px solid black; width: 400px; height: 300px;'></div>
-      <script>
-      mapboxgl.accessToken = "{{ accessToken }}";
-      const map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [-9.136460336570337,38.715813526390804],
-      zoom: 12
-      });
-      </script>
-<br><br>
+<div id='map' style='width: 400px; height: 300px; border: 1px solid black;'></div><br><br>
+
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+<script async defer src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+<script async defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/js/maps.js"></script>
+
 {{#each image}}
 <div class="card" style="width: 18rem;">
   <img src="{{image}}" class="card-img-top" alt="placeholder text">
   <div class="card-body">
-    <p class="card-text">{{image.description}}</p>
+    <p class="card-text">{{location}}</p>
+    <p class="card-text">{{description}}</p>
   </div>
-</div>
+</div><br>
 {{/each}}

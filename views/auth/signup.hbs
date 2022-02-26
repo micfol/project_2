@@ -2,14 +2,17 @@
 
 <form action="/auth/signup" method="POST">
    <label> Email
-      <input type="text" name="email">
+      <input type="text" name="email" placeholder="abc@email.com">
    </label><br>
    <label> Username
-      <input type="text" name="username">
+      <input type="text" name="username" placeholder="SomeCoolUsername">
    </label><br>
    <label> Password
-      <input type="password" name="password">
-   </label>
+      <input type="password" name="password" placeholder="**********">
+   </label><br>
+   <label> Bio
+      <textarea rows="2" cols="45" name="bio" placeholder="Tell people a little about yourself!"></textarea>
+   </label><br>
 
    <button type="submit">Submit</button>
 </form>

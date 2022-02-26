@@ -9,8 +9,8 @@ const pictureSchema = new Schema(
     lattitude: Number, 
     longitude: Number,
     location: String,
-    // add html protection to ensure one or the other is completed for user adding either location with "add location" button or the manual location field to type in the area.
     description: String,
+    author: { type: Schema.Types.ObjectId, ref: "User" }
   },
   {
     timestamps: true

@@ -1,35 +1,43 @@
 <h2>Add Picture View</h2>
 
 <button onclick="getLocation()">Add current Lattitude and Longitude to Form</button>
-
-<p id="demo"></p>
-
 <script>
-var x = document.getElementById("demo");
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-
-function showPosition(position) {
-  document.getElementById('lattitude').value = position.coords.latitude;
-  document.getElementById('longitude').value = position.coords.longitude;
-}
-</script>
+    var x = document.getElementById("demo");
+    function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+    }
+    function showPosition(position) {
+    document.getElementById('lattitude').value = position.coords.latitude;
+    document.getElementById('longitude').value = position.coords.longitude;
+    }
+</script><br><br>
 
 
 <form action="/pictureApp/add-photo" method="post" enctype="multipart/form-data">
     <label>Select Image File:</label>
     <input type="file" name="image"><br>
-    <label>Latitude:</label>
-    <input type="text" name="lattitude" id="lattitude" disabled><br>
-    <label>Longitude:</label>
-    <input type="text" name="longitude" id="longitude" disabled><br>
-    <label>Description:</label>
-    <input type="text"  name="description"><br>
+    <label>Latitude:</label><br>
+    <input type="text" name="lattitude" id="lattitude" readonly><br>
+    <label>Longitude:</label><br>
+    <input type="text" name="longitude" id="longitude" readonly><br>
+    <label>Location:</label><br>
+    <textarea rows="1" cols="45" name="location" placeholder="Where was the picture was taken?"></textarea><br>
+    <label>Description:</label><br>
+    <textarea rows="2" cols="45" name="description" placeholder="Tell everyone about the picture you took!"></textarea><br>
+
+    {{!-- <label for="author-select"> Created by:
+        <select name="author">
+        <option disable selected value=""></option>
+        {{#each dbUsers}}
+            <option value="{{this._id}}"> {{this.username}} </option>
+        {{/each}}
+        </select>
+    </label> --}}
+  <br>
     <input type="submit" name="submit" value="Upload">
+    
 </form>
