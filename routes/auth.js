@@ -10,7 +10,7 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-router.get("/signup", isLoggedIn, (req, res) => {
+router.get("/signup", (req, res) => {
   res.render("auth/signup");
 });
 
