@@ -25,7 +25,7 @@ const main = () => {
   }
 
   axios
-    .get("http://localhost:3000/api/pictures")
+    .get("https://micfolpictureapp.herokuapp.com/api/pictures")
     .then((result) => {
       result.data.forEach((picture) => {
         new mapboxgl.Marker()
