@@ -7,8 +7,8 @@ const main = () => {
 
   const map = new mapboxgl.Map({
     container: "map",
-    center: [-9.136460336570337,38.715813526390804],
-    zoom: 12,
+    center: [10.136246,47.084164], //-9.136460336570337,38.715813526390804 Lisbon Center
+    zoom: 3,
     style: "mapbox://styles/mapbox/streets-v11", 
   });
 

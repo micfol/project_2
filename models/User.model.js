@@ -20,7 +20,7 @@ const userSchema = new Schema(
       required: [true, 'Password is required.']
     },
     bio: String,
-    pictureEntries: [{ type: Schema.Types.ObjectId, ref: 'Picture' }]
+    pictureEntries: [{ type: Schema.Types.ObjectId, ref: 'picture' }]
   },
   {
     timestamps: true

@@ -1,18 +1,32 @@
 <h2>Main Feed View</h2>
 
-<div id='map' style='width: 400px; height: 300px; border: 1px solid black;'></div><br><br>
+<div class="container">
+      <div class="row">
+            <div class="col-12">
+                  <div id='map'></div> 
+            </div>
+           
+      </div>
+
 
 <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
 <script async defer src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
 <script async defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="/js/maps.js"></script>
 
-{{#each image}}
-<div class="card" style="width: 18rem;">
-  <img src="{{image}}" class="card-img-top" alt="placeholder text">
-  <div class="card-body">
-    <p class="card-text">{{location}}</p>
-    <p class="card-text">{{description}}</p>
-  </div>
-</div><br>
-{{/each}}
+
+      <div class="row">
+      {{#each image}}
+            <div class="col-sm-6 col-md-4 ">
+                  <div class="card mx-auto my-3" style="max-width: 18rem;">
+                  <img src="{{image}}" class="card-img-top" alt="placeholder text">
+                        <div class="card-body">
+                        {{!-- <p class="card-text">Uploaded by: {{username}}</p> --}}
+                        <p class="card-text">{{location}}</p>
+                        <p class="card-text fw-light">{{description}}</p>
+                        </div>
+                  </div>
+            </div>
+      {{/each}}
+      </div>
+</div>

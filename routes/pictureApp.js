@@ -7,6 +7,7 @@ const User = require('../models/User.model');
 router.get('/main-feed', (req, res) => {
   Picture.find()
     .then(imagesFromDb => {
+      console.log('imagesFromDb :>> ', imagesFromDb);
       res.render('pictureApp/main-feed', { image: imagesFromDb, userInSession: req.session.currentUser, accessToken: process.env.MAPBOXGL_ACCESSTOKEN });
     })
     .catch(err => console.log(`Error while getting the images from the DB: ${err}`));
@@ -14,11 +15,7 @@ router.get('/main-feed', (req, res) => {
 
 // GET Add Photo View
 router.get('/add-photo', (req, res) => {
-  // User.find()
-  //   .then((userInSession) =>{
       res.render('pictureApp/add-photo', { userInSession: req.session.currentUser });
-    // })
-    // .catch((err) => console.log(`Error while displaying the picture input page: ${err}`));
 });
 
 // POST Add Photo Route
@@ -40,6 +37,15 @@ router.post('/add-photo', fileUploader.single('image'), (req, res) => {
       
     })
     .catch(error => console.log(`Error while uploading a picture: ${error}`));
+});
+
+// GET Delete Photo Route
+// "/pictureEntries/{{_id}}/delete"
+router.get('/:Id/delete', (req, res, next) => {
+  const pictureId  = req.params.Id;
+  Picture.findByIdAndDelete(pictureId)
+    .then(() => res.redirect('/user/profile'))
+    .catch(error => next(error));
 });
 
 module.exports = router;

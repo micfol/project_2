@@ -1,6 +1,13 @@
+html {
+  height: 100%
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: linear-gradient(to bottom right, #8B8BBB, #ECDED4);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 a {
@@ -9,4 +16,14 @@ a {
 
 h1 {
   color: 15px;
+}
+
+#map {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  min-width: 400px;
+  max-width: 95%;
+  height: 300px;
+  border: 1px solid black;
 }

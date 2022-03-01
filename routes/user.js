@@ -1,13 +1,21 @@
 const router = require("express").Router();
+const isLoggedIn = require("../middleware/isLoggedIn");
+const Picture = require('../models/Picture.model');
 const User = require("../models/User.model");
 
 // GET User Profile View
-router.get("/profile", (req, res) => {
-  res.render("user/profile", { userInSession: req.session.currentUser });
+router.get("/profile", isLoggedIn, (req, res, next) => {
+  User.findById(req.session.user._id)
+    .populate('pictureEntries')
+    .then(loggedInUser => {
+      // console.log("loggedInUser from the DB: ", loggedInUser);
+      res.render('user/profile', { loggedInUser });
+    })
+    .catch(error => next(error));
 });
 
 // GET Edit Profile View
-router.get("/edit-profile", (req, res) => {
+router.get("/edit-profile", isLoggedIn, (req, res, next) => {
   const userId  = req.session.user._id;
   User.findById(userId)
     .then(userDataToEdit => {
