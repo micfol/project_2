@@ -6,7 +6,7 @@ const User = require('../models/User.model');
 // GET Main Feed View
 router.get('/main-feed', (req, res) => {
   Picture.find()
-    .then(imagesFromDb => {
+    .then(imagesFromDb.sort({ createdAt: -1 }) => {
       res.render('pictureApp/main-feed', { image: imagesFromDb, userInSession: req.session.currentUser, accessToken: process.env.MAPBOXGL_ACCESSTOKEN });
     })
     .catch(err => console.log(`Error while getting the images from the DB: ${err}`));
