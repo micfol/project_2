@@ -7,7 +7,6 @@ const User = require('../models/User.model');
 router.get('/main-feed', (req, res) => {
   Picture.find()
     .then(imagesFromDb => {
-      console.log('imagesFromDb :>> ', imagesFromDb);
       res.render('pictureApp/main-feed', { image: imagesFromDb, userInSession: req.session.currentUser, accessToken: process.env.MAPBOXGL_ACCESSTOKEN });
     })
     .catch(err => console.log(`Error while getting the images from the DB: ${err}`));
@@ -23,7 +22,7 @@ router.post('/add-photo', fileUploader.single('image'), (req, res) => {
   const imageUrl = req.file.path;
   const { lattitude, longitude, location, description } = req.body;
   const userId  = req.session.user._id;
-  console.log(req.body);
+  
   Picture.create({ image: imageUrl, lattitude, longitude, location, description, author: userId })
     .then(imagesFromDb => {
       return imagesFromDb;
