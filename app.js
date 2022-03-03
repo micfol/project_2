@@ -14,6 +14,7 @@ const projectName = "pictureApp";
 const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
 
 app.locals.title = `${capitalized(projectName)}`;
+app.locals.mapBoxToken = process.env.MAPBOX_ACCESS_TOKEN;
 
 // Routes Below
 const index = require("./routes/index");

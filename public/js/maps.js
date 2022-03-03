@@ -1,9 +1,7 @@
 "use strict";
 
-const MAPBOX_ACCESS_TOKEN = 'pk.eyJ1IjoibWljZm9sIiwiYSI6ImNrenRxbGFjcTAwcjkydnJ1azdlNGM1bDIifQ.E2bz4zYP6VfTVsvYEKNSPw'
-
-const main = () => {
-  mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
+const main = (token) => {
+  mapboxgl.accessToken = token;
 
   const map = new mapboxgl.Map({
     container: "map",
@@ -35,5 +33,3 @@ const main = () => {
     })
     .catch((err) => console.error(err));
 };
-
-window.addEventListener("load", main);

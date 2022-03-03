@@ -11,5 +11,19 @@
 <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
 <script async defer src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
 <script async defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="/js/maps.js"></script>
+<script defer src="/js/maps.js"></script>
+<script defer type="text/javascript">
+setTimeout(() => {
+      main(`{{{mapBoxToken}}}`)
+}, 1500);
+</script>
+
+    <div class="row justify-content-center">
+        <div class="col-4 mx-auto text-center">
+        <a href="/auth/login" class="btn btn-secondary">Login</a>
+        </div>
+        <div class="col-4 mx-auto">
+        <a href="/auth/signup"><button type="button" class="btn btn-secondary">Sign Up</button></a>
+        </div>
+    </div>
 </div>

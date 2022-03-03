@@ -5,9 +5,3 @@ document.addEventListener(
   },
   false
 );
-
-// Template.registerHelper('reverseArray', (array) => array.reverse());
-
-// Handlebars.registerHelper('reverse', function (arr) {
-//   arr.reverse();
-// });

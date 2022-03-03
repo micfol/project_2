@@ -4,7 +4,8 @@ html {
 
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Urbanist', sans-serif;
+  /* font: 14px "Urbanist", Helvetica, Arial, sans-serif; */
   background: linear-gradient(to bottom right, #8B8BBB, #ECDED4);
   background-repeat: no-repeat;
   background-attachment: fixed;
