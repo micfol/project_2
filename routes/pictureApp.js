@@ -2,10 +2,12 @@ const router = require('express').Router();
 const fileUploader = require('../config/uploadConfig');
 const Picture = require('../models/Picture.model');
 const User = require('../models/User.model');
+const isLoggedIn = require("../middleware/isLoggedIn");
 
 // GET Main Feed View
 router.get('/main-feed', (req, res) => {
   Picture.find().sort({ createdAt: -1 })
+    .populate('author')
     .then(imagesFromDb => {
       res.render('pictureApp/main-feed', { image: imagesFromDb, userInSession: req.session.currentUser, accessToken: process.env.MAPBOXGL_ACCESSTOKEN });
     })
@@ -13,7 +15,7 @@ router.get('/main-feed', (req, res) => {
 });
 
 // GET Add Photo View
-router.get('/add-photo', (req, res) => {
+router.get('/add-photo', isLoggedIn, (req, res) => {
       res.render('pictureApp/add-photo', { userInSession: req.session.currentUser });
 });
 
@@ -30,16 +32,14 @@ router.post('/add-photo', fileUploader.single('image'), (req, res) => {
     .then(pictureData => {
       const pictureId = pictureData._id.toString()
       const userId = req.session.user._id
-      console.log('userId :>> ', userId);
+
       User.findByIdAndUpdate(userId, { $push: { pictureEntries: pictureId } })
-      .then(doesntmatter => res.redirect('/pictureApp/main-feed'));
-      
+      .then(addRedirect => res.redirect('/pictureApp/main-feed'));
     })
     .catch(error => console.log(`Error while uploading a picture: ${error}`));
 });
 
 // GET Delete Photo Route
-// "/pictureEntries/{{_id}}/delete"
 router.get('/:Id/delete', (req, res, next) => {
   const pictureId  = req.params.Id;
   Picture.findByIdAndDelete(pictureId)

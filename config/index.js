@@ -61,4 +61,10 @@ module.exports = (app) => {
       }),
     })
   );
+
+  // Middleware to check if a user is logged in
+  app.use( (req, res, next) => {
+    req.app.locals.isLoggedIn = !!req.session.user;
+    next()
+  });
 };

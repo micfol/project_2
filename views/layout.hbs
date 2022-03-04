@@ -33,9 +33,18 @@
         <li class="nav-item">
           <a class="nav-link" href="/pictureApp/add-photo">Add a Photo</a>
         </li>
+        {{#if isLoggedIn}}
         <li class="nav-item">
           <a class="nav-link" href="/auth/logout" method="POST">Logout</a>
         </li>
+        {{else}}
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/signup">Signup</a>
+        </li>
+        {{/if}}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             More...

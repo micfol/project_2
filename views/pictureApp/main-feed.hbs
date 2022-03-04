@@ -1,4 +1,4 @@
-<h2>Main Feed View</h2>
+<h3>Main Feed View</h3>
 
 <div class="container">
       <div class="row">
@@ -18,20 +18,30 @@ setTimeout(() => {
 }, 1500);
 </script>
 
-
-
       <div class="row">
-      {{!-- {{reverse image}} --}}
       {{#each image}}
-            <div class="col-sm-6 col-md-4 ">
+            <div class="col-sm-5 col-md-4 ">
                   <div class="card mx-auto my-3" style="max-width: 18rem;">
-                  <img src="{{image}}" class="card-img-top" alt="placeholder text">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#modal-{{_id}}">
+                              <img src="{{image}}" class="card-img-top" alt="placeholder text">
+                        </a>
                         <div class="card-body">
-                        {{!-- <p class="card-text">Uploaded by: {{username}}</p> --}}
-                        <p class="card-text">{{location}}</p>
-                        <p class="card-text fw-light">{{description}}</p>
+                              <p class="card-text">Uploaded by: {{author.username}}</p>
+                              <p class="card-text" id="imageLocation">{{location}}</p>
+                              <p class="card-text fw-light">{{description}}</p>
                         </div>
                   </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="modal-{{_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                    <div class="modal-body">
+                                          <img src="{{image}}" style="max-width: 100%;">
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+                  <!--End of Modal-->
             </div>
       {{/each}}
       </div>

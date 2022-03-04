@@ -1,13 +1,16 @@
 <form action="/auth/login" method="POST">
-   <label> Username
-      <input type="text" name="username">
-   </label>
-   <label> Password
-      <input type="password" name="password">
-   </label>
-
-   <button type="submit">Submit</button>
+  <div class="mb-3">
+    <label for="exampleInputusername1" class="form-label">Username</label>
+    <input type="text" name="username" class="form-control" id="exampleInputusername1" aria-describedby="usernameHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<br>
+<a href="/auth/signup">New around here? Sign up</a>
 
 {{#if errorMessage}}
    {{errorMessage}}

@@ -10,10 +10,13 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
+// GET Signup Route -----------------------------------
 router.get("/signup", (req, res) => {
   res.render("auth/signup");
 });
 
+
+// POST Signup Route -----------------------------------
 router.post("/signup", (req, res) => {
   console.log("entering signup post");
   const { email, username, password, bio } = req.body;
@@ -75,11 +78,13 @@ router.post("/signup", (req, res) => {
   });
 });
 
+// GET Login Route -----------------------------------
 router.get("/login", (req, res) => {
   console.log("Login attempt ->", req.body)
   res.render("auth/login");
 });
 
+// POST Login Route -----------------------------------
 router.post("/login", (req, res, next) => {
   const { username, password } = req.body;
   
@@ -110,7 +115,8 @@ router.post("/login", (req, res, next) => {
             .render("auth/login", { errorMessage: "Wrong credentials." });
         }
         req.session.user = user;
-        return res.redirect("/");
+        req.app.locals.isLoggedIn = true;
+        return res.redirect("/pictureApp/main-feed");
       });
     })
 
@@ -119,6 +125,7 @@ router.post("/login", (req, res, next) => {
     });
 });
 
+// GET Logout Route -----------------------------------
 router.get("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {
     if (err) {
@@ -130,9 +137,11 @@ router.get("/logout", isLoggedIn, (req, res) => {
   });
 });
 
+// POST Logout Route -----------------------------------
 router.post('/logout', (req, res, next) => {
   req.session.destroy(err => {
     if (err) next(err);
+    req.app.locals.isLoggedIn = false;
     res.redirect('/');
   });
 });

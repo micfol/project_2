@@ -2,6 +2,10 @@ html {
   height: 100%
 }
 
+body, #map, a, section, p, #imageLocation, .c-font {
+  font-family: 'Urbanist', sans-serif;
+}
+
 body {
   padding: 50px;
   font-family: 'Urbanist', sans-serif;
@@ -28,4 +32,8 @@ h1 {
   max-width: 100%;
   height: 300px;
   border: 1px solid black;
+}
+
+#imageLocation {
+  font-weight: 600;
 }
