@@ -37,3 +37,26 @@ h1 {
 #imageLocation {
   font-weight: 600;
 }
+
+#uploadedBy {
+  text-align: right;
+  font-size: 70%;
+}
+
+#picUploadForm {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#latLngButton {
+  margin-top: 15px;
+}
+
+#uploadedBy {
+  margin-bottom: 2%;
+  margin-top: 0%;
+}
+
+#cardBody {
+  padding-top: 5%;
+}

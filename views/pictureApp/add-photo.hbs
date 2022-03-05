@@ -1,6 +1,6 @@
 <h2>Add a Photo to the Map</h2>
 
-<button type="button" class="btn btn-outline-light btn-sm" onclick="getLocation()">Click to add current Lattitude and Longitude to Form</button>
+<button type="button" id="latLngButton" class="btn btn-outline-light btn-sm" onclick="getLocation()">Click to add current Lattitude and Longitude to Form</button>
 {{!-- <button onclick="getLocation()">Add current Lattitude and Longitude to Form</button> --}}
 <script>
     var x = document.getElementById("demo");
@@ -15,20 +15,52 @@
     document.getElementById('lattitude').value = position.coords.latitude;
     document.getElementById('longitude').value = position.coords.longitude;
     }
-</script><br><br>
+</script>
+
+<form action="/pictureApp/add-photo" method="post" enctype="multipart/form-data" id="picUploadForm">
+  <div class="mb-3">
+    <label for="fileInput" class="form-label">Select Image File</label>
+    <input type="file" name="image" class="form-control" id="fileInput" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">Select an image from your local storage to upload.</div>
+  </div>
+  <div class="mb-3">
+    <label for="lattitude" class="form-label">Lattitude</label>
+    <input type="text" name="lattitude" class="form-control" id="lattitude">
+  </div>
+  <div class="mb-3">
+    <label for="longitude" class="form-label">Longitude</label>
+    <input type="text" name="longitude" class="form-control" id="longitude" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="locationInput" class="form-label">Location</label>
+    <input type="text"name="location" class="form-control" id="locationInput" aria-describedby="emailHelp">
+    <div id="locationHelp" class="form-text">Ex: Tokyo, Japan</div>
+  </div>
+  <div class="mb-3">
+    <label for="descriptionInput" class="form-label">Description</label>
+    <input type="text" name="description" class="form-control" id="descriptionInput" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">Say a little about the photo you're uploading!</div>
+  </div>
+  <button type="submit" name="submit" value="upload" class="btn btn-secondary">Submit</button>
+</form>
 
 
-<form action="/pictureApp/add-photo" method="post" enctype="multipart/form-data">
+{{!-- <form action="/pictureApp/add-photo" method="post" enctype="multipart/form-data">
     <label>Select Image File:</label>
     <input type="file" name="image"><br>
+
     <label>Latitude:</label><br>
     <input type="text" name="lattitude" id="lattitude"><br>
+
     <label>Longitude:</label><br>
     <input type="text" name="longitude" id="longitude"><br>
+
     <label>Location:</label><br>
     <textarea rows="1" cols="45" name="location" placeholder="Where was the picture was taken?"></textarea><br>
+
     <label>Description:</label><br>
     <textarea rows="2" cols="45" name="description" placeholder="Tell everyone about the picture you took!"></textarea><br><br>
+
     <input type="submit" name="submit" value="Upload">
     
-</form>
+</form> --}}
