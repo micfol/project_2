@@ -18,13 +18,13 @@
                 <div class="card-body">
                     <h5 class="card-title">{{location}}</h5>
                     <p class="card-text">{{description}}</p>
-                    <a type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <a type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{_id}}">
                 Delete Post
                 </a>
                 </div>
                 </div>
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal{{_id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -37,8 +37,8 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
                     <a href="/pictureApp/{{_id}}/delete" type="button" class="btn btn-danger btn-sm" >
-                Delete Post
-                </a>
+                    Delete Post
+                    </a>
                     </div>
                     </div>
                 </div>

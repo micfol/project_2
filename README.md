@@ -1,4 +1,19 @@
 # project_2
-Github repository for 2nd Ironhack Project
+## CRUD App
+### Node Version: v14.17.6
 
-Commiting to Git use: $ git push project_2 master
+## Technology
+- Node
+- Express
+- MongoDb
+- HTML
+- CSS
+
+## Deployed Here
+https://micfolpictureapp.herokuapp.com/pictureApp/
+
+## Things I'd like to do next
+- More Update functionality
+- Map interactivity
+- Ability to open camera from app to take pictures
+- Implement comments/favorites

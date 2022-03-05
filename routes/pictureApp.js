@@ -42,6 +42,7 @@ router.post('/add-photo', fileUploader.single('image'), (req, res) => {
 // GET Delete Photo Route
 router.get('/:Id/delete', (req, res, next) => {
   const pictureId  = req.params.Id;
+  console.log("id",pictureId)
   Picture.findByIdAndDelete(pictureId)
     .then(() => res.redirect('/user/profile'))
     .catch(error => next(error));
