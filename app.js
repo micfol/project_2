@@ -13,10 +13,11 @@ require("./config")(app);
 const projectName = "pictureApp";
 const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
 
+// Locals -----------------------------------
 app.locals.title = `${capitalized(projectName)}`;
 app.locals.mapBoxToken = process.env.MAPBOX_ACCESS_TOKEN;
 
-// Routes Below
+// Routes -----------------------------------
 const index = require("./routes/index");
 app.use("/", index);
 

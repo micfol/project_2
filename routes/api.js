@@ -3,7 +3,7 @@ const router = express.Router();
 
 const Pictures = require('../models/Picture.model');
 
-// GET  /api/pictures     -  Get pictures feed to mapbox.
+// GET API for Pictures -----------------------------------
 router.get('/pictures', function (req, res, next) {
   Pictures.find()
     .then(pictures => res.json(pictures))

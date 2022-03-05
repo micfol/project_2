@@ -3,7 +3,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 const Picture = require('../models/Picture.model');
 const User = require("../models/User.model");
 
-// GET User Profile View
+// GET User Profile View -----------------------------------
 router.get("/profile", isLoggedIn, (req, res, next) => {
   User.findById(req.session.user._id)
     .populate('pictureEntries')
@@ -14,7 +14,7 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
     .catch(error => next(error));
 });
 
-// GET Edit Profile View
+// GET Edit Profile View -----------------------------------
 router.get("/edit-profile", isLoggedIn, (req, res, next) => {
   const userId  = req.session.user._id;
   User.findById(userId)
@@ -25,7 +25,7 @@ router.get("/edit-profile", isLoggedIn, (req, res, next) => {
   ;
 });
 
-// POST Edit Profile Changes
+// POST Edit Profile Changes -----------------------------------
 router.post('/edit-profile/:userId/edit', (req, res, next) => {
   const { userId } = req.params;
   const { username, bio } = req.body;
