@@ -7,6 +7,7 @@
 - Node
 - Express
 - MongoDb
+- Handlebars
 - HTML
 - CSS
 

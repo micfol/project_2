@@ -8,7 +8,6 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
   User.findById(req.session.user._id)
     .populate('pictureEntries')
     .then(loggedInUser => {
-       console.log("loggedInUser from the DB picture entries: ", loggedInUser.pictureEntries);
       res.render('user/profile', { loggedInUser });
     })
     .catch(error => next(error));

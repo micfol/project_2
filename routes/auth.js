@@ -20,7 +20,6 @@ router.get("/signup", (req, res) => {
 router.post("/signup", (req, res) => {
   console.log("entering signup post");
   const { email, username, password, bio } = req.body;
-  console.log("req.body",req.body);
 
   if (!username) {
     return res
