@@ -1,19 +1,23 @@
 <h2>Signup</h2>
 
-<form action="/auth/signup" method="POST">
-   <label> Email <br>
-      <input type="text" name="email" placeholder="abc@email.com">
-   </label><br>
-   <label> Username <br>
-      <input type="text" name="username" placeholder="SomeCoolUsername">
-   </label><br>
-   <label> Password <br>
-      <input type="password" name="password" placeholder="**********">
-   </label><br>
-   <label> Bio <br>
-      <textarea rows="2" cols="45" name="bio" placeholder="Tell people a little about yourself!"></textarea>
-   </label><br>
-   <button type="submit">Submit</button>
+<form action="/auth/signup" method="POST" id="signupForm">
+  <div class="mb-3">
+    <label for="exampleInputemail1" class="form-label">Email</label>
+    <input type="text" name="email" class="form-control" id="exampleInputemail1">
+  </div>
+    <div class="mb-3">
+    <label for="exampleInputusername1" class="form-label">Username</label>
+    <input type="text" name="username" class="form-control" id="exampleInputusername1">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputBio" class="form-label">Bio</label>
+    <input type="text" name="username" class="form-control" id="exampleInputBio">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
 {{#if errorMessage}}

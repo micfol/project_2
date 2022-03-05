@@ -1,9 +1,9 @@
 <h2>User Profile Page</h2> 
 <br>
-<h4>Username:</h4>
-    <p>{{loggedInUser.username}}</p>
-<h4>Bio:</h4>
-    <p>{{loggedInUser.bio}}</p>
+<h4 id=".c-font">Username:</h4>
+    <p id=".c-font">{{loggedInUser.username}}</p>
+<h4 id=".c-font">Bio:</h4>
+    <p id=".c-font">{{loggedInUser.bio}}</p>
 <a class="btn btn-outline-light btn-sm" href="/user/edit-profile" role="button">Edit Username or Bio</a>
 <br>
 <br>
@@ -16,8 +16,8 @@
                 <div class="card" style="max-width: 18rem;">
                 <img src={{image}} class="card-img-top" alt="Photo Entry by User">
                 <div class="card-body">
-                    <h5 class="card-title">{{location}}</h5>
-                    <p class="card-text">{{description}}</p>
+                    <h5 class="card-title" id=".c-font">{{location}}</h5>
+                    <p class="card-text" id=".c-font">{{description}}</p>
                     <a type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{_id}}">
                 Delete Post
                 </a>

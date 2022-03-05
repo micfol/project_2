@@ -2,8 +2,12 @@ html {
   height: 100%
 }
 
-body, #map, a, section, p, #imageLocation, .c-font {
+body, #map, a, section, p, #imageLocation, h2, h1, h3, h4, .c-font {
   font-family: 'Urbanist', sans-serif;
+}
+
+h4 {
+  text-decoration: underline;
 }
 
 body {
@@ -17,10 +21,6 @@ body {
 
 a {
   color: #00b7ff;
-}
-
-h1 {
-  color: 15px;
 }
 
 #map {
@@ -59,4 +59,12 @@ h1 {
 
 #cardBody {
   padding-top: 5%;
+}
+
+#signupForm {
+  margin-top: 15px;
+}
+
+#loginForm {
+  margin-top: 15px;
 }
